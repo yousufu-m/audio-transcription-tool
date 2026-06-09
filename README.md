@@ -44,8 +44,26 @@ pip install -r scripts/requirements.txt
 
 ### (Optional) Pre-download Model for Offline Use
 
+**方式 A：便捷脚本（推荐）**
 ```bash
-# Download ~3GB model to local models/ directory
+# 安装 huggingface-hub（仅首次需要）
+pip install huggingface-hub
+
+# 下载单个模型
+python scripts/download_model.py --model large-v3
+
+# 下载多个模型
+python scripts/download_model.py --model small --model medium
+
+# 下载所有模型（约 15GB）
+python scripts/download_model.py --all
+
+# 查看可用模型列表
+python scripts/download_model.py --list
+```
+
+**方式 B：手动 huggingface-cli**
+```bash
 pip install huggingface-hub
 huggingface-cli download Systran/faster-whisper-large-v3 --local-dir models/faster-whisper-large-v3
 ```
